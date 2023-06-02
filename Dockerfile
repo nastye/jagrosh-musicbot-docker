@@ -1,13 +1,16 @@
-FROM eclipse-temurin:17-jre-alpine
+ARG RELEASE_VERSION
 
-ENV RELEASE_VERSION=0.3.9
+FROM curlimages/curl:8.1.1 AS downloader
 
-RUN mkdir -p /app && \
-  curl -L https://github.com/jagrosh/MusicBot/releases/download/${RELEASE_VERSION}/JMusicBot-${RELEASE_VERSION}.jar -o /app/JMusicBot.jar && \
-  chown -R 1000:1000 /app
+RUN curl -L https://github.com/jagrosh/MusicBot/releases/download/${RELEASE_VERSION}/JMusicBot-${RELEASE_VERSION}.jar -o JMusicBot.jar 
 
+FROM eclipse-temurin:17.0.7_7-jre-alpine
+
+RUN mkdir -p /app && chown -R 1000:1000 /app
+COPY --chown=1000:1000 --from=downloader JMusicBot.jar /app/JMusicBot.jar
 ADD --chown=1000:1000 entrypoint.sh /app/entrypoint.sh
 
 WORKDIR /app
+USER 1000
 
 ENTRYPOINT [ "/bin/sh", "entrypoint.sh" ]
