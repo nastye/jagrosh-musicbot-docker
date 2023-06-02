@@ -1,6 +1,6 @@
-ARG RELEASE_VERSION
-
 FROM curlimages/curl:8.1.1 AS downloader
+
+ARG RELEASE_VERSION
 
 USER 0
 RUN echo ${RELEASE_VERSION}
