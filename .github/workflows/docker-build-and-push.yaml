@@ -36,6 +36,6 @@ jobs:
         with:
           context: .
           build-args: |
-            RELEASE_VERSION=${{ env.RELEASE_VERSION }}
+            RELEASE_VERSION="${{ env.RELEASE_VERSION }}"
           push: true
           tags: nastye/jagrosh-musicbot:${{ env.RELEASE_VERSION }}
