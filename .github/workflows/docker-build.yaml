@@ -1,0 +1,15 @@
+name: Docker Build
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Get Version
+      run: export RELEASE_VERSION=$(cat version.txt)
+    - name: Build Docker image
+      run: docker build . --file Dockerfile --build-arg RELEASE_VERSION=${RELEASE_VERSION} --tag nastye/jagrosh-music-bot:${RELEASE_VERSION}
