@@ -5,6 +5,8 @@ if [ ! -z "$1" ]; then
   exit 0
 fi
 
+rm -f /app/config.txt
+
 if [ -z "$TOKEN" ]; then
   echo \$TOKEN not set
   exit 1
