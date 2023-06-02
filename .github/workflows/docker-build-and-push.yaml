@@ -35,7 +35,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-          build-args:
-          - "RELEASE_VERSION=${{ env.RELEASE_VERSION }}"
+          build-args: |
+            RELEASE_VERSION=${{ env.RELEASE_VERSION }}
           push: true
           tags: nastye/jagrosh-musicbot:${{ env.RELEASE_VERSION }}
