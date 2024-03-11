@@ -1,3 +1,17 @@
-we build docker images here
+#jagrosh-musicbot-docker
+---
 
-[all functionality from jagrosh/musicbot](https://github.com/jagrosh/MusicBot)
+For functionality, see: https://github.com/jagrosh/MusicBot
+
+Image is built and tagged from the version supplied in [version](version).
+
+Run using
+```bash
+touch serversettings.json
+docker run --detach \
+  --env TOKEN=YOURTOKENHERE \
+  --env OWNER=YOURUSERIDHERE \
+  --env PREFIX='!' \
+  --volume ./serversettings.json:/app/serversettings.json \
+  nastye/jagrosh-musicbot:VERSION
+```
