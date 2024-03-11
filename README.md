@@ -1,4 +1,4 @@
-#jagrosh-musicbot-docker
+jagrosh-musicbot-docker
 ---
 
 For functionality, see: https://github.com/jagrosh/MusicBot
