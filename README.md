@@ -12,6 +12,6 @@ docker run --detach \
   --env TOKEN=YOURTOKENHERE \
   --env OWNER=YOURUSERIDHERE \
   --env PREFIX='!' \
-  --volume ./serversettings.json:/app/serversettings.json \
+  --volume $(pwd)/serversettings.json:/app/serversettings.json \
   nastye/jagrosh-musicbot:VERSION
 ```
