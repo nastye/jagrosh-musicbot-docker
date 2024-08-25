@@ -1,0 +1,25 @@
+name: Deploy to Google Compute Engine
+on:
+  workflow_run:
+    workflows: [Docker build and push]
+    types:
+      - completed
+
+jobs:
+  gce-deploy:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      # Get musicbot version and image tag from version file
+      - name: Set version
+        run: echo "RELEASE_VERSION=$(cat version)" >> $GITHUB_ENV
+ 
+      # Setup gcloud CLI
+      - uses: google-github-actions/setup-gcloud@master
+        with:
+          version: '290.0.1'
+          service_account_key: ${{ secrets.GCE_SA_KEY }}
+          project_id: ${{ secrets.GCE_PROJECT_ID }}
+      - run: gcloud compute instances update-container "${{ secrets.GCE_INSTANCE }}" \
+            --zone "${{ secrets.GCE_INSTANCE_ZONE }}" \
+            --container-image "nastye/jagrosh-music-bot:${{ env.RELEASE_VERSION }}
