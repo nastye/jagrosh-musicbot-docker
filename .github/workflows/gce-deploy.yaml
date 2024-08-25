@@ -23,8 +23,10 @@ jobs:
       - uses: google-github-actions/setup-gcloud@v2
         with:
           version: '290.0.1'
-          service_account_key: ${{ secrets.GCE_SA_KEY }}
           project_id: ${{ secrets.GCE_PROJECT_ID }}
+      - uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCE_SA_CREDENTIALS_JSON }}
       - run: gcloud compute instances update-container "${{ secrets.GCE_INSTANCE }}" \
             --zone "${{ secrets.GCE_INSTANCE_ZONE }}" \
             --container-image "nastye/jagrosh-music-bot:${{ env.RELEASE_VERSION }}
