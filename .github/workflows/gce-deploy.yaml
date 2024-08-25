@@ -1,8 +1,9 @@
 name: Deploy to Google Compute Engine
+
 on:
   push:
     branches:
-      - "feat/gce-deploy"
+      - "feature/gce-deploy"
 
   # workflow_run:
   #   workflows: [Docker build and push]
