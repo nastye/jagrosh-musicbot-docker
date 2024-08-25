@@ -26,7 +26,7 @@ jobs:
           credentials_json: ${{ secrets.GCE_SA_CREDENTIALS_JSON }}
       - uses: google-github-actions/setup-gcloud@v2
         with:
-          version: '290.0.1'
+          version: '487.0.0'
           project_id: ${{ secrets.GCE_PROJECT_ID }}
       - run: gcloud compute instances update-container "${{ secrets.GCE_INSTANCE }}" \
             --zone "${{ secrets.GCE_INSTANCE_ZONE }}" \
