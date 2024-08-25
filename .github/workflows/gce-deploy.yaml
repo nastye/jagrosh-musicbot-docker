@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - "feature/gce-deploy"
+  workflow_dispatch:
 
   # workflow_run:
   #   workflows: [Docker build and push]
