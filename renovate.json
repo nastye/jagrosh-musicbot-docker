@@ -7,8 +7,9 @@
         "version"
       ],
       "matchStrings": [
-        "#\\s*renovate: datasource=(?<datasource>.*?) packageName=(?<packageName>.*?)\\s*(?<currentValue>.*)"
-      ]
+        "#\\s*renovate: packageName=(?<packageName>.*?)\\s*(?<currentValue>.*)"
+      ],
+      "datasourceTemplate": "github-releases"
     }
   ]
 }

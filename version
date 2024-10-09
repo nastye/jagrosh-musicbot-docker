@@ -1,2 +1,2 @@
-# renovate datasource=github-releases packageName=jagrosh/musicbot
+# renovate: packageName=jagrosh/musicbot
 0.4.3
