@@ -1,0 +1,15 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": [
+        "version"
+      ],
+      "matchStrings": [
+        "#\\s*renovate: packageName=(?<packageName>.*?)\\s\n*(?<currentValue>.*)"
+      ],
+      "datasourceTemplate": "github-releases"
+    }
+  ]
+}
