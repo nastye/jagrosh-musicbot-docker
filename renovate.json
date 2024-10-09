@@ -1,0 +1,15 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": [
+        "version"
+      ],
+      "matchStrings": [
+        "#\\s*renovate: datasource=(?<datasource>.*?) packageName=(?<packageName>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?(?: extractVersion=(?<extractVersion>.*?))?\\s*(?<currentValue>.*)"
+      ],
+      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{/if}}"
+    }
+  ]
+}

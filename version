@@ -1,2 +1,2 @@
-# renovate packageName=jagrosh/musicbot registry=https://github.com
+# renovate packageName=jagrosh/musicbot datasource=github-releases
 0.4.3
