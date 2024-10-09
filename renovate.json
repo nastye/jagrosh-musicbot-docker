@@ -19,5 +19,5 @@
       "automerge": true
     }
   ],
-  "ignoretests": true
+  "ignoreTests": true
 }
