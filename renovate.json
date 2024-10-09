@@ -11,5 +11,13 @@
       ],
       "datasourceTemplate": "github-releases"
     }
+  ],
+  "packageRules": [
+    {
+      "description": "Automerge non-major updates",
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true,
+      "ignoretests": true
+    }
   ]
 }
