@@ -16,8 +16,8 @@
     {
       "description": "Automerge non-major updates",
       "matchUpdateTypes": ["minor", "patch"],
-      "automerge": true,
-      "ignoretests": true
+      "automerge": true
     }
-  ]
+  ],
+  "ignoretests": true
 }
