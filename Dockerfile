@@ -1,4 +1,4 @@
-FROM curlimages/curl:8.13.0 AS downloader
+FROM curlimages/curl:8.14.1 AS downloader
 
 ARG RELEASE_VERSION
 
